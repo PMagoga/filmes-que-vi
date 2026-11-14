@@ -1,0 +1,230 @@
+:root {
+    --bg: #e9eef3;
+    --surface: #ffffff;
+    --ink: #14213d;
+    --muted: #55627c;
+    --accent: #2d3fe0;
+    --ticket: #ffc93c;
+    --line: #c9d3df;
+    --radius: 14px;
+    --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+.site-header,
+.filters,
+.result-count,
+.catalog-container {
+    width: min(1180px, 100% - 2.5rem);
+    margin-inline: auto;
+}
+
+/* cabeçalho */
+.site-header {
+    padding: clamp(2.5rem, 7vw, 5rem) 0 1.5rem;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.75rem, 11vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+}
+
+.site-header p {
+    margin: 1rem 0 0;
+    max-width: 42ch;
+    color: var(--muted);
+    font-size: 1.125rem;
+}
+
+/* filtros: rolagem horizontal no celular, quebra de linha no desktop */
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 0 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    flex: none;
+    padding: 0.55rem 1.1rem;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font: 600 0.95rem var(--font-body);
+    cursor: pointer;
+    transition:
+        background-color 0.15s,
+        color 0.15s;
+}
+
+.filter-btn:hover {
+    background: rgb(20 33 61 / 0.08);
+}
+
+.filter-btn[aria-pressed="true"] {
+    background: var(--ink);
+    color: #fff;
+}
+
+.filter-btn:focus-visible,
+.movie-card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.result-count {
+    margin-block: 0.5rem 1.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    min-height: 1.4em;
+}
+
+/* grade de filmes */
+.catalog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+    gap: clamp(1.25rem, 3vw, 2rem);
+    padding-bottom: 4rem;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 0 var(--line);
+}
+
+/* pôster */
+.poster {
+    aspect-ratio: 2 / 3;
+    background: hsl(var(--hue) 40% 30%);
+}
+
+.poster img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* quando a imagem falha, o título vira o pôster */
+.poster--fallback {
+    display: flex;
+    align-items: flex-end;
+    padding: 1.25rem;
+    background: hsl(var(--hue) 55% 32%);
+    color: hsl(var(--hue) 90% 92%);
+}
+
+.poster--fallback span {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+}
+
+/* informações */
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+    padding: 1.1rem 1.25rem 1.4rem;
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 0.15rem 0.65rem;
+    border-radius: 999px;
+    background: var(--ticket);
+    color: var(--ink);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.movie-info h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.description {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.details {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0.4rem 0 0;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.875rem;
+}
+
+.details div {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 0.5rem;
+}
+
+.details dt {
+    color: var(--muted);
+}
+
+.details dd {
+    margin: 0;
+    font-weight: 500;
+}
+
+.empty {
+    grid-column: 1 / -1;
+    padding: 3rem 0;
+    color: var(--muted);
+    text-align: center;
+}
+
+@media (min-width: 720px) {
+    .filters {
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

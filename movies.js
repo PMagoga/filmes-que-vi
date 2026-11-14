@@ -1,0 +1,38 @@
+const movieList = [
+    {
+        title: "O Poderoso Chefão",
+        description: "Um drama de família sobre uma família mafiosa italiana.",
+        category: "Drama",
+        year: 1972,
+        director: "Francis Ford Coppola",
+        actors: ["Marlon Brando", "Al Pacino", "James Caan"],
+        image: "https://upload.wikimedia.org/wikipedia/pt/d/de/Godfather_1972.jpg?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+    },
+    {
+        title: "O Poderoso Chefão II",
+        description: "Um drama de família sobre uma família mafiosa italiana.",
+        category: "Drama",
+        year: 1974,
+        director: "Francis Ford Coppola",
+        actors: ["Robert Duvall", "Al Pacino", "Robert De Niro", "Diane Keaton"],
+        image: "https://upload.wikimedia.org/wikipedia/pt/b/b7/Godfather_1974.jpg?utm_source=pt.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    },
+    {
+        title: "O Senhor dos Anéis: A Sociedade do Anel",
+        description: "Um hobbit parte em uma jornada para destruir um anel mágico.",
+        category: "Fantasia",
+        year: 2001,
+        director: "Peter Jackson",
+        actors: ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
+        image: "https://upload.wikimedia.org/wikipedia/pt/3/38/Lord_of_the_Rings_Fellowship_of_the_Ring.jpg?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+    },
+    {
+        title: "Matrix",
+        description: "Um programador descobre que a realidade é uma simulação.",
+        category: "Ficção Científica",
+        year: 1999,
+        director: "Lana Wachowski, Lilly Wachowski",
+        actors: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
+        image: "https://upload.wikimedia.org/wikipedia/pt/c/c1/The_Matrix_Poster.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original",
+    },
+];
